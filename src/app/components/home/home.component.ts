@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   showComponents: boolean;
   color_modal: boolean;
   currentTheme: any;
+  themeSelected: any;
 
   themes: any[] = [
     {
@@ -60,11 +61,13 @@ export class HomeComponent implements OnInit {
   changedTheme(color: string, number: number){
     // let bodyClass = this.document.body.classList;
     let themeSelected = `${color}-theme`;
+    this.currentTheme = color;
 
     const change = () => {
       this.document.documentElement.style.setProperty('--hue-color', `${number}`);
-      this.currentTheme = themeSelected;
     }
+
+    console.log(this.currentTheme);
 
     if(this.currentTheme !== themeSelected){
       switch (color) {

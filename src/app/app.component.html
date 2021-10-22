@@ -62,7 +62,7 @@
   </nav>
 </header>
 
-<a *ngIf="currentPosition !== 0" (click)="scroll(target)" class="scrollup" id="scroll-up">
+<a *ngIf="currentPosition !== 0 && showHeader" (click)="scroll(target)" class="scrollup" id="scroll-up">
   <i class="uil uil-arrow-up scrollup__icon"></i>
 </a>
 
