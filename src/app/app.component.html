@@ -1,0 +1,72 @@
+<!-- <header *ngIf="showHeader" class="header__top" id="header">
+
+</header>
+ -->
+
+<!-- <header *ngIf="!showHeader" class="header" id="header"> -->
+<header class="header" id="header">
+  <nav class="nav container">
+    <!-- <a href="#" class="nav__logo">Valentina Morales &copy;</a> -->
+    <a href="#" class="nav__logo">Valentina &copy;</a>
+    <div *ngIf="toggled || showHeader" class="nav__menu" id="nav-menu" [ngClass]="{'show-menu': toggled}">
+    <!-- <div class="nav__menu show-menu" id="nav-menu" [ngClass]="{'': toggled}"> -->
+
+      <ul class="nav__list grid">
+        <li class="nav__item">
+          <a class="nav__link" (click)="onToggle()" [routerLink]="['/home']" routerLinkActive="router-link-active">
+            <i class="uil uil-estate nav__icon"></i>HOME
+          </a>
+        </li>
+        <li class="nav__item">
+          <a class="nav__link" (click)="onToggle()" [routerLink]="['/about-me']" routerLinkActive="router-link-active">
+            <i class="uil uil-user nav__icon"></i>ABOUT
+          </a>
+        </li>
+        <li class="nav__item">
+          <a class="nav__link" (click)="onToggle()" [routerLink]="['/skills']" routerLinkActive="router-link-active" >
+            <i class="uil uil-file-alt nav__icon"></i>SKILLS
+          </a>
+        </li>
+        <li class="nav__item">
+          <a class="nav__link" (click)="onToggle()" [routerLink]="['/qualification']" routerLinkActive="router-link-active" >
+            <i class="uil uil-check-circle nav__icon"></i>SERVICES
+          </a>
+        </li>
+        <li class="nav__item">
+          <a class="nav__link" (click)="onToggle()" [routerLink]="['/projects']" routerLinkActive="router-link-active">
+            <i class="uil uil-scenery nav__icon"></i>PORTFOLIO
+          </a>
+        </li>
+        <!-- <li *ngIf="!showHeader" class="nav__item">
+          <a class="nav__link" (click)="onToggle()" [routerLink]="['/new-project']" routerLinkActive="router-link-active">
+            <i class="uil uil-briefcase-alt nav__icon"></i>PROJECT IN MIND?
+          </a>
+        </li> -->
+        <li class="nav__item">
+          <a class="nav__link" (click)="onToggle()" [routerLink]="['/contact']" routerLinkActive="router-link-active" >
+            <i class="uil uil-message nav__icon"></i>CONTACT ME
+          </a>
+        </li>
+      </ul>
+      <i (click)="onToggle()" class="uil uil-times nav__close" id="nav-close"></i>
+    </div>
+    <div class="nav__btns">
+
+      <!-- Theme change button -->
+      <i class="uil change-theme" (click)="changedTheme();" [ngClass]="{'uil-moon': changeTheme.light, 'uil-sun': changeTheme.dark}" id="theme-button"></i>
+
+      <div class="nav__toggle" id="nav-toggle" (click)="onToggle()">
+        <i class="uil uil-apps"></i>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<a *ngIf="currentPosition !== 0" (click)="scroll(target)" class="scrollup" id="scroll-up">
+  <i class="uil uil-arrow-up scrollup__icon"></i>
+</a>
+
+<section #target class="main">
+  <router-outlet></router-outlet>
+</section>
+
